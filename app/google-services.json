@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "143638216135",
+    "firebase_url": "https://user-f0b5a-default-rtdb.firebaseio.com",
+    "project_id": "user-f0b5a",
+    "storage_bucket": "user-f0b5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143638216135:android:934bdf005a608e5195ade2",
+        "android_client_info": {
+          "package_name": "com.example.a789"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABL2chT-hH2RCmmZeU9SE1rwQbmfLkm8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143638216135:android:e538f5e986dfb36295ade2",
+        "android_client_info": {
+          "package_name": "com.example.coursework12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABL2chT-hH2RCmmZeU9SE1rwQbmfLkm8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
