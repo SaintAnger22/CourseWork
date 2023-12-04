@@ -1,7 +1,5 @@
 package com.example.coursework12;
 
-import android.os.Parcel;
-
 import java.io.Serializable;
 
 public class CourseDomain implements Serializable {
@@ -12,14 +10,24 @@ public class CourseDomain implements Serializable {
     private String descriptionTxt;
     private int numberInCard;
     private String languageTxt;
+    private String locationTxt;
 
-    public CourseDomain(String title, String owner, int price, String pic, String descriptionTxt, String languageTxt) {
+    public String getLocationTxt() {
+        return locationTxt;
+    }
+
+    public void setLocationTxt(String locationTxt) {
+        this.locationTxt = locationTxt;
+    }
+
+    public CourseDomain(String title, String owner, int price, String pic, String descriptionTxt, String languageTxt, String locationTxt) {
         this.title = title;
         this.owner = owner;
         this.price = price;
         this.pic = pic;
         this.descriptionTxt = descriptionTxt;
         this.languageTxt = languageTxt;
+        this.locationTxt= locationTxt;
     }
 
     public String getTitle() {
@@ -76,47 +84,5 @@ public class CourseDomain implements Serializable {
 
     public void setPicUrl(String pic) {
         this.pic = pic;
-    }
-
-    // Метод для интерфейса Parcelable
-//    @Override
-//    public int describeContents() {
-//        return 0;
-//    }
-//
-//    // Метод для интерфейса Parcelable, записывает значения полей в Parcel
-//    @Override
-//    public void writeToParcel(@NonNull Parcel dest, int flags) {
-//        dest.writeString(title);
-//        dest.writeString(owner);
-//        dest.writeDouble(price);
-//        dest.writeString(pic);
-//        dest.writeString(descriptionTxt);
-//        dest.writeInt(numberInCard);
-//        dest.writeString(languageTxt);
-//    }
-//
-//    // Статический CREATOR для создания экземпляра класса из Parcel
-//    public static final Creator<CourseDomain> CREATOR = new Creator<CourseDomain>() {
-//        @Override
-//        public CourseDomain createFromParcel(Parcel in) {
-//            return new CourseDomain(in);
-//        }
-//
-//        @Override
-//        public CourseDomain[] newArray(int size) {
-//            return new CourseDomain[size];
-//        }
-//    };
-
-    // Приватный конструктор для создания экземпляра класса из Parcel
-    private CourseDomain(Parcel in) {
-        title = in.readString();
-        owner = in.readString();
-        price = in.readInt();
-        pic = in.readString();
-        descriptionTxt = in.readString();
-        numberInCard = in.readInt();
-        languageTxt = in.readString();
     }
 }

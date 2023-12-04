@@ -1,6 +1,7 @@
 package com.example.coursework12;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -23,13 +24,13 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edLogin, edPassword;
     private FirebaseAuth mAuth;
     private Button bStart, bSignUp, bSignIn, bSignOut;
-    private TextView tvUserName, textEmail, textPassword, AuthorizeTxt;
+    private TextView tvUserName, textEmail, textPassword, AuthorizeTxt, bForgotPassword;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
         init();
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     @Override
@@ -63,7 +64,27 @@ public class LoginActivity extends AppCompatActivity {
         textEmail= findViewById(R.id.textEmail);
         textPassword= findViewById(R.id.textPassword);
         AuthorizeTxt = findViewById(R.id.AuthorizeTxt);
+        bForgotPassword = findViewById(R.id.bForgotPassword);
         mAuth = FirebaseAuth.getInstance();
+    }
+
+    public void onClickForgotPassword(View view) {
+        String email = edLogin.getText().toString().trim();
+
+        if (!TextUtils.isEmpty(email)) {
+            mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "Письмо для сброса пароля отправлено на вашу почту", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Не удалось отправить письмо для сброса пароля", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(getApplicationContext(), "Введите ваш email для сброса пароля", Toast.LENGTH_SHORT).show();
+        }
     }
     public void onClickSignUp(View view)
     {
@@ -124,6 +145,7 @@ public class LoginActivity extends AppCompatActivity {
         edPassword.setVisibility(View.VISIBLE);
         bSignIn.setVisibility(View.VISIBLE);
         bSignUp.setVisibility(View.VISIBLE);
+        bForgotPassword.setVisibility(View.VISIBLE);
     }
     private void showSigned(){
         FirebaseUser user = mAuth.getCurrentUser();
@@ -140,6 +162,7 @@ public class LoginActivity extends AppCompatActivity {
             edPassword.setVisibility(View.GONE);
             bSignIn.setVisibility(View.GONE);
             bSignUp.setVisibility(View.GONE);
+            bForgotPassword.setVisibility(View.GONE);
         }
         else{
             Toast.makeText(getApplicationContext(), "Проверьте вашу почту для подтверждения E-mail адреса", Toast.LENGTH_SHORT).show();
@@ -157,7 +180,7 @@ public class LoginActivity extends AppCompatActivity {
         edPassword.setVisibility(View.VISIBLE);
         bSignIn.setVisibility(View.VISIBLE);
         bSignUp.setVisibility(View.VISIBLE);
-
+        bForgotPassword.setVisibility(View.VISIBLE);
     }
     public void onClickStart(View view)
     {

@@ -42,8 +42,17 @@ public class ManageCart {
                 break;
             }
         }
-
         tinyDB.putListObject("CartList", listcourse);
+    }
+
+    public boolean isCourseInCart(CourseDomain item) {
+        ArrayList<CourseDomain> listcourse = getlistCarT();
+        for (int i = 0; i < listcourse.size(); i++) {
+            if (listcourse.get(i).getTitle().equals(item.getTitle())) {
+                return true;
+            }
+        }
+        return false;
     }
     public ArrayList<CourseDomain> getlistCart() {
         return tinyDB.getListObject("CartList");
