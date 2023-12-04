@@ -11,9 +11,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CourseWork12"
-        tools:targetApi="34">
+        tools:targetApi="34"
+        android:usesCleartextTraffic="true">
+
+
         <activity
-            android:name=".LoginActivity"
+            android:name=".AccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GamingCategory"
+            android:exported="false" />
+        <activity
+            android:name=".CodingCategory"
+            android:exported="false" />
+        <activity
+            android:name=".CreativeCategory"
+            android:exported="false" />
+        <activity
+            android:name=".BusinessCategory"
+            android:exported="false" />
+        <activity
+            android:name=".IntroActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +45,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ReadActivity" />
-        <activity android:name=".ShowActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
 
 </manifest>

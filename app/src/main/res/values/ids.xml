@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="mainImgBtn" type="id" />
+    <item name="favoriteImg" type="id" />
+    <item name="myCoursesImg" type="id" />
+    <item name="accountImg" type="id" />
+</resources>
