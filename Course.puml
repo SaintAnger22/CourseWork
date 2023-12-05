@@ -1,0 +1,326 @@
+@startuml
+class CartListAdapter {
+~ ArrayList<CourseDomain> listCourseSelected
+- ManageCart manageCart
+~ ChangeNumberItemListener changeNumberItemListener
++ <<Create>> CartListAdapter(ArrayList<CourseDomain>,Context,ChangeNumberItemListener)
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(CartListAdapter.ViewHolder,int)
++ int getItemCount()
+}
+class CartListAdapter$ViewHolder {
+~ TextView title
+~ ImageView pic
+~ TextView num
++ <<Create>> ViewHolder(View)
+}
+class ManageCart {
+- Context context
+- TinyDB tinyDB
++ <<Create>> ManageCart(Context)
++ void addCourse(CourseDomain)
++ void removeCourse(CourseDomain)
++ boolean isCourseInCart(CourseDomain)
++ ArrayList<CourseDomain> getlistCart()
++ void clearCart()
++ ArrayList<CourseDomain> getlistCarT()
++ void minusNumberCourse(ArrayList<CourseDomain>,int,ChangeNumberItemListener)
++ Double getTotalPrice()
+}
+interface ChangeNumberItemListener {
+~ void changed()
+}
+class DetailActivity {
+- Button addToCartBtn
+- ImageView backBtn
+- boolean isItemInCart
+- TextView languageTxt
+- int numberOrder
+- ManageCart manageCart
+~ Bundle bundle
+- Context context
+~ CourseDomain courseDomain
+# void onCreate(Bundle)
+# void onResume()
+- void callToOwner()
+- void addToCart()
+- void removeFromCart()
+- void getBundle()
+- void initView()
+- void setVariable()
+}
+class ButtonsListAdapter {
+~ ArrayList<CourseDomain> itemsGraphic
+~ Context context
++ <<Create>> ButtonsListAdapter(ArrayList<CourseDomain>)
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ButtonsListAdapter.ViewHolder,int)
++ int getItemCount()
+}
+class ButtonsListAdapter$ViewHolder {
+~ TextView businessTitle
+~ ImageView picBusiness
++ <<Create>> ViewHolder(View)
+}
+class CartActivity {
+- RecyclerView.Adapter adapter
+- RecyclerView recyclerView
+- TextView feeTxt
+- ManageCart manageCart
+- ScrollView scrollView
+- TinyDB tinydb
+~ Button payBtn
+# void onCreate(Bundle)
+- void savePaidCourses(ArrayList<CourseDomain>)
+- void showSuccessDialog()
+- void showChoiceDialog()
+- void initList()
+- void Calculate()
+- void initView()
+}
+class MyCoursesListAdapter {
+- ArrayList<CourseDomain> myCoursesList
+- ArrayList<Boolean> selectedCourses
+- Context context
++ <<Create>> MyCoursesListAdapter(ArrayList<CourseDomain>,Context)
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
++ void updateCourses(ArrayList<CourseDomain>)
++ ArrayList<CourseDomain> getSelectedCourses()
+}
+class MyCoursesListAdapter$ViewHolder {
+~ TextView title_Txt
+~ ImageView pic_course
+~ CheckBox checkBox
++ <<Create>> ViewHolder(View)
+}
+class TinyDB {
+- SharedPreferences preferences
+- String DEFAULT_APP_IMAGEDATA_DIRECTORY
+- String lastImagePath
++ <<Create>> TinyDB(Context)
++ Bitmap getImage(String)
++ String getSavedImagePath()
++ String putImage(String,String,Bitmap)
++ boolean putImageWithFullPath(String,Bitmap)
+- String setupFullPath(String)
+- boolean saveBitmap(String,Bitmap)
++ int getInt(String)
++ ArrayList<Integer> getListInt(String)
++ long getLong(String)
++ float getFloat(String)
++ double getDouble(String)
++ ArrayList<Double> getListDouble(String)
++ ArrayList<Long> getListLong(String)
++ String getString(String)
++ ArrayList<String> getListString(String)
++ boolean getBoolean(String)
++ ArrayList<Boolean> getListBoolean(String)
++ ArrayList<CourseDomain> getListObject(String)
++ T getObject(String,Class<T>)
++ void putInt(String,int)
++ void putListInt(String,ArrayList<Integer>)
++ void putLong(String,long)
++ void putListLong(String,ArrayList<Long>)
++ void putFloat(String,float)
++ void putDouble(String,double)
++ void putListDouble(String,ArrayList<Double>)
++ void putString(String,String)
++ void putListString(String,ArrayList<String>)
++ void putBoolean(String,boolean)
++ void putListBoolean(String,ArrayList<Boolean>)
++ void putObject(String,Object)
++ void putListObject(String,ArrayList<CourseDomain>)
++ void remove(String)
++ boolean deleteImage(String)
++ void clear()
++ Map<String,?> getAll()
++ void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener)
++ void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener)
++ {static} boolean isExternalStorageWritable()
++ {static} boolean isExternalStorageReadable()
+- void checkForNullKey(String)
+- void checkForNullValue(String)
+}
+class LoginActivity {
+- EditText edLogin
+- FirebaseAuth mAuth
+- Button bStart
+- TextView tvUserName
+# void onCreate(Bundle)
+# void onStart()
+- void init()
++ void onClickForgotPassword(View)
++ void onClickSignUp(View)
++ void onClickSignIn(View)
++ void onClickSignOut(View)
+- void showSigned()
+- void notSigned()
++ void onClickStart(View)
+- void sendEmailVer()
+}
+class AccountActivity {
+- FirebaseAuth mAuth
+- Button LogoutBtn
+- TextView tvUserName
+# void onStart()
+- void showSigned()
+- void init()
+# void onCreate(Bundle)
++ void onClickMyCourses(View)
++ void onClickLogout(View)
+}
+class BusinessCategory {
+- RecyclerView.Adapter adapterCourseListBusiness
+- RecyclerView recyclerViewCourse
+- ImageView backBtn
+# void onCreate(Bundle)
+- void setVariable()
+- void initRecyclerView()
+- void initView()
+}
+class GamingCategory {
+- RecyclerView.Adapter adapterCourseListGaming
+- RecyclerView recyclerViewCourse
+- ImageView backBtn
+# void onCreate(Bundle)
+- void setVariable()
+- void initRecyclerView()
+- void initView()
+}
+class CodingCategory {
+- RecyclerView.Adapter adapterCourseListCoding
+- RecyclerView recyclerViewCourse
+- ImageView backBtn
+# void onCreate(Bundle)
+- void setVariable()
+- void initRecyclerView()
+- void initView()
+}
+class MyCoursesActivity {
+- RecyclerView.Adapter myCoursesAdapter
+- RecyclerView my_courses_view
+- TextView EmptyTxtMyCourses
+- TinyDB tinydb
+- ImageView backBtnMyCourses
+# void onCreate(Bundle)
+- void showSuccessDialog()
+- void showChoiceDialog()
+- ArrayList<CourseDomain> getPaidCourses()
+- void initMyCoursesList(ArrayList<CourseDomain>)
+- void setVariable()
+- void deleteSelectedCourses()
+}
+class IntroActivity {
+# void onCreate(Bundle)
++ void onClickAuth(View)
+}
+class ExampleInstrumentedTest {
++ void useAppContext()
+}
+class CreativeCategory {
+- RecyclerView.Adapter adapterCourseListCreative
+- RecyclerView recyclerViewCourse
+- ImageView backBtn
+# void onCreate(Bundle)
+- void setVariable()
+- void initRecyclerView()
+- void initView()
+}
+class MainActivity {
+- RecyclerView.Adapter adapterCourses
++ RecyclerView recyclerViewCourses
+- Button btnCall
+- void init()
+# void onCreate(Bundle)
+- void initRecyclerView()
++ void onCourseItemClick(CourseDomain)
++ void onClickCall(View)
++ void catBusinessList(View)
++ void catCreativeList(View)
++ void catCodingList(View)
++ void catGamingList(View)
+}
+class CourseAdapter {
+- ArrayList<CourseDomain> items
+- OnCourseItemClickListener listener
+~ Context context
++ <<Create>> CourseAdapter(ArrayList<CourseDomain>)
++ CourseAdapter.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(CourseAdapter.ViewHolder,int)
++ int getItemCount()
++ void setOnCourseItemClickListener(OnCourseItemClickListener)
+}
+interface CourseAdapter$OnCourseItemClickListener {
+~ void onCourseItemClick(CourseDomain)
+}
+class CourseAdapter$ViewHolder {
+~ TextView titleTxt
+~ ImageView pic
++ <<Create>> ViewHolder(View)
+}
+class ExampleUnitTest {
++ void addition_isCorrect()
+}
+class CourseDomain {
+- String title
+- String owner
+- int price
+- String pic
+- String descriptionTxt
+- int numberInCard
+- String languageTxt
+- String locationTxt
+- String ownerNumber
++ <<Create>> CourseDomain(String,String,int,String,String,String,String,String)
++ String getLocationTxt()
++ void setLocationTxt(String)
++ boolean equals(Object)
++ int hashCode()
++ String getOwnerNumber()
++ void setOwnerNumber(String)
++ String getTitle()
++ void setTitle(String)
++ String getOwner()
++ void setOwner(String)
++ int getPrice()
++ void setPrice(int)
++ int getNumberInCard()
++ void setNumberInCard(int)
++ String getDescriptionTxt()
++ void setDescriptionTxt(String)
++ String getLanguageTxt()
++ void setLanguageTxt(String)
++ String getPicUrl()
++ void setPicUrl(String)
+}
+
+
+Adapter <|-- CartListAdapter
+CartListAdapter +.. CartListAdapter$ViewHolder
+ViewHolder <|-- CartListAdapter$ViewHolder
+AppCompatActivity <|-- DetailActivity
+Adapter <|-- ButtonsListAdapter
+ButtonsListAdapter +.. ButtonsListAdapter$ViewHolder
+ViewHolder <|-- ButtonsListAdapter$ViewHolder
+AppCompatActivity <|-- CartActivity
+Adapter <|-- MyCoursesListAdapter
+MyCoursesListAdapter +.. MyCoursesListAdapter$ViewHolder
+ViewHolder <|-- MyCoursesListAdapter$ViewHolder
+AppCompatActivity <|-- LoginActivity
+AppCompatActivity <|-- AccountActivity
+AppCompatActivity <|-- BusinessCategory
+AppCompatActivity <|-- GamingCategory
+AppCompatActivity <|-- CodingCategory
+AppCompatActivity <|-- MyCoursesActivity
+AppCompatActivity <|-- IntroActivity
+AppCompatActivity <|-- CreativeCategory
+OnCourseItemClickListener <|.. MainActivity
+AppCompatActivity <|-- MainActivity
+Adapter <|-- CourseAdapter
+CourseAdapter +.. CourseAdapter$OnCourseItemClickListener
+CourseAdapter +.. CourseAdapter$ViewHolder
+ViewHolder <|-- CourseAdapter$ViewHolder
+Serializable <|.. CourseDomain
+@enduml
