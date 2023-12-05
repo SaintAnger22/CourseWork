@@ -1,8 +1,12 @@
 package com.example.coursework12;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,10 +20,12 @@ public class DetailActivity extends AppCompatActivity {
     private Button addToCartBtn;
     private ImageView backBtn;
     private boolean isItemInCart = false;
-    private TextView languageTxt, titleTxt, ownerTxt, priceTxt, descriptionTxt, locationTxt;
+    private TextView languageTxt, titleTxt, ownerTxt, priceTxt, descriptionTxt, locationTxt, ownerNumber;
     private int numberOrder = 0;
     private ManageCart manageCart;
     Bundle bundle;
+
+    private Context context;
     CourseDomain courseDomain;
 
     @Override
@@ -46,6 +52,14 @@ public class DetailActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         getBundle();
+    }
+
+    private void callToOwner(){
+        String ownerNumberString = courseDomain.getOwnerNumber();{
+            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+            dialIntent.setData(Uri.parse("tel:" + ownerNumberString));
+            startActivity(dialIntent);
+        }
     }
 
 
@@ -121,6 +135,14 @@ public class DetailActivity extends AppCompatActivity {
         ownerTxt = findViewById(R.id.ownerTxt);
         backBtn = findViewById(R.id.backBtn);
         languageTxt = findViewById(R.id.languageTxt);
+        ownerNumber = findViewById(R.id.ownerNumber);
+
+        ownerNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callToOwner();
+            }
+        });
     }
 
     private void setVariable() {

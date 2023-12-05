@@ -15,30 +15,25 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class AccountActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private Button LogoutBtn;
+    private Button LogoutBtn, MyCoursesBtn;
     private TextView tvUserName;
 
     @Override
     protected void onStart() {
         super.onStart();
         FirebaseUser cUser = mAuth.getCurrentUser();
-        if(cUser != null)
-        {
             showSigned();
-            String userName = "Вы вошли как: " + cUser.getEmail();
+            String userName = "Вы вошли как:\n" + cUser.getEmail();
             tvUserName.setText(userName);
-        }
     }
 
     private void showSigned() {
         FirebaseUser user = mAuth.getCurrentUser();
-        String userName = "Вы вошли как: " + user.getEmail();
-        tvUserName.setText(userName);
-
     }
 
     private void init()
     {
+        MyCoursesBtn = findViewById(R.id.MyCoursesBtn);
         tvUserName = findViewById(R.id.tvUserEmail);
         LogoutBtn = findViewById(R.id.LogoutBtn);
         mAuth = FirebaseAuth.getInstance();
@@ -70,6 +65,12 @@ public class AccountActivity extends AppCompatActivity {
             }
             return false;
         });
+    }
+
+    public void onClickMyCourses(View view) {
+        Intent i = new Intent(this,
+                MyCoursesActivity.class);
+        startActivity(i);
     }
     
     public void onClickLogout(View view) {

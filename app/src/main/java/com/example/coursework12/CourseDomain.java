@@ -11,6 +11,7 @@ public class CourseDomain implements Serializable {
     private int numberInCard;
     private String languageTxt;
     private String locationTxt;
+    private String ownerNumber;
 
     public String getLocationTxt() {
         return locationTxt;
@@ -20,7 +21,7 @@ public class CourseDomain implements Serializable {
         this.locationTxt = locationTxt;
     }
 
-    public CourseDomain(String title, String owner, int price, String pic, String descriptionTxt, String languageTxt, String locationTxt) {
+    public CourseDomain(String title, String owner, int price, String pic, String descriptionTxt, String languageTxt, String locationTxt, String ownerNumber) {
         this.title = title;
         this.owner = owner;
         this.price = price;
@@ -28,6 +29,34 @@ public class CourseDomain implements Serializable {
         this.descriptionTxt = descriptionTxt;
         this.languageTxt = languageTxt;
         this.locationTxt= locationTxt;
+        this.ownerNumber= ownerNumber;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        CourseDomain that = (CourseDomain) obj;
+
+        return title != null ? title.equals(that.title) : that.title == null &&
+                owner != null ? owner.equals(that.owner) : that.owner == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (owner != null ? owner.hashCode() : 0);
+        return result;
+    }
+
+
+    public String getOwnerNumber() {
+        return ownerNumber;
+    }
+
+    public void setOwnerNumber(String ownerNumber) {
+        this.ownerNumber = ownerNumber;
     }
 
     public String getTitle() {

@@ -57,6 +57,9 @@ public class ManageCart {
     public ArrayList<CourseDomain> getlistCart() {
         return tinyDB.getListObject("CartList");
     }
+    public void clearCart() {
+        tinyDB.putListObject("CartList", new ArrayList<>());
+    }
 
 
 

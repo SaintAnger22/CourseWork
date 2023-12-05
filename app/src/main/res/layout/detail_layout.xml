@@ -193,6 +193,19 @@
                     android:textColor="@color/black"
                     android:gravity="start"
                     android:textSize="18dp"/>
+
+                <TextView
+                    android:id="@+id/ownerNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Позвонить автору"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:onClick="callToOwner"
+                    android:textColor="@color/orange"
+                    android:gravity="end"
+                    android:textSize="18dp"/>
             </LinearLayout>
 
             <TextView

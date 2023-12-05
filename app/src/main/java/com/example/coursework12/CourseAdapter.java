@@ -27,8 +27,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         this.items = items;
     }
 
-
-
     @NonNull
     @Override
     public CourseAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,22 +34,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         context = parent.getContext();
         return new ViewHolder(inflate);
     }
-
-//    @Override
-//    public void onBindViewHolder(@NonNull CourseAdapter.ViewHolder holder, int position) {
-//        CourseDomain course = items.get(position);
-//        holder.itemView.setOnClickListener(view -> {
-//            if (listener != null) {
-//                listener.onCourseItemClick(course);
-//            }
-//        });
-//        holder.titleTxt.setText(items.get(position).getTitle());
-//        holder.ownerTxt.setText(items.get(position).getOwner());
-//        holder.priceTxt.setText("BYN" + formatter.format(items.get(position).getPrice()));
-//
-//        int drawableResourceId=holder.itemView.getResources().getIdentifier(items.get(position).getPicUrl(),
-//                "drawable", holder.itemView.getContext().getPackageName());
-//        Glide.with(holder.itemView.getContext()).load(drawableResourceId).into(holder.pic);
 
         @Override
         public void onBindViewHolder(@NonNull CourseAdapter.ViewHolder holder, int position) {
