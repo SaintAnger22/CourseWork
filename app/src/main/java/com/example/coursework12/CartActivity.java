@@ -153,7 +153,7 @@ public class CartActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
-        if(manageCart.getlistCarT().isEmpty()){ // Обратите внимание на использование правильного метода
+        if(manageCart.getlistCarT().isEmpty()){
             emptyTxt.setVisibility(View.VISIBLE);
             scrollView.setVisibility(View.GONE);
         } else {
