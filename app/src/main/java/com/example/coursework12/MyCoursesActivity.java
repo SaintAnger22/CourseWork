@@ -1,5 +1,6 @@
 package com.example.coursework12;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,6 +29,8 @@ public class MyCoursesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_courses);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         tinydb = new TinyDB(this);
 
         my_courses_view = findViewById(R.id.my_courses_view);
