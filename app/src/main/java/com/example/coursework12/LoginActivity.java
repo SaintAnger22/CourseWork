@@ -97,7 +97,6 @@ public class LoginActivity extends AppCompatActivity {
                     {
                         showSigned();
                         sendEmailVer();
-                        Toast.makeText(getApplicationContext(), "Вы успешно зарегистрировались", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
@@ -122,7 +121,6 @@ public class LoginActivity extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
                         showSigned();
-                        Toast.makeText(getApplicationContext(), "Вы успешно вошли в систему", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
