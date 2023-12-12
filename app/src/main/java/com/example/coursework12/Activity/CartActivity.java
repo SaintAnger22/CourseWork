@@ -1,4 +1,4 @@
-package com.example.coursework12;
+package com.example.coursework12.Activity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -16,6 +16,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.coursework12.Adapter.CartListAdapter;
+import com.example.coursework12.ChangeNumberItemListener;
+import com.example.coursework12.Domain.CourseDomain;
+import com.example.coursework12.ManageCart;
+import com.example.coursework12.R;
+import com.example.coursework12.TinyDB;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

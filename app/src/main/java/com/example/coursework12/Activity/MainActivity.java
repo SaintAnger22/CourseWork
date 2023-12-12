@@ -1,4 +1,4 @@
-package com.example.coursework12;
+package com.example.coursework12.Activity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -13,11 +13,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.coursework12.Category.BusinessCategory;
+import com.example.coursework12.Category.CodingCategory;
+import com.example.coursework12.Adapter.CourseAdapter;
+import com.example.coursework12.Domain.CourseDomain;
+import com.example.coursework12.Category.CreativeCategory;
+import com.example.coursework12.Category.GamingCategory;
+import com.example.coursework12.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements CourseAdapter.OnCourseItemClickListener{
+public class MainActivity extends AppCompatActivity implements CourseAdapter.OnCourseItemClickListener {
     private RecyclerView.Adapter adapterCourses;
     public RecyclerView recyclerViewCourses;
     private Button btnCall;

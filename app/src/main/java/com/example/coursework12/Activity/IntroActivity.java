@@ -1,4 +1,4 @@
-package com.example.coursework12;
+package com.example.coursework12.Activity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.coursework12.R;
 
 public class IntroActivity extends AppCompatActivity {
 

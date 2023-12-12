@@ -1,4 +1,4 @@
-package com.example.coursework12;
+package com.example.coursework12.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
+import com.example.coursework12.Domain.CourseDomain;
+import com.example.coursework12.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

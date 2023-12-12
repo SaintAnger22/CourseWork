@@ -1,4 +1,4 @@
-package com.example.coursework12;
+package com.example.coursework12.Activity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coursework12.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

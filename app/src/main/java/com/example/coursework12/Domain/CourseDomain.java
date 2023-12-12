@@ -1,4 +1,4 @@
-package com.example.coursework12;
+package com.example.coursework12.Domain;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.example.coursework12;
+package com.example.coursework12.Activity;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.ColorDrawable;
@@ -14,6 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.coursework12.Domain.CourseDomain;
+import com.example.coursework12.Adapter.MyCoursesListAdapter;
+import com.example.coursework12.R;
+import com.example.coursework12.TinyDB;
 
 import java.util.ArrayList;
 import java.util.HashSet;

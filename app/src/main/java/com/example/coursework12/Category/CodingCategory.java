@@ -1,4 +1,4 @@
-package com.example.coursework12;
+package com.example.coursework12.Category;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.coursework12.Adapter.ButtonsListAdapter;
+import com.example.coursework12.Domain.CourseDomain;
+import com.example.coursework12.R;
 
 import java.util.ArrayList;
 

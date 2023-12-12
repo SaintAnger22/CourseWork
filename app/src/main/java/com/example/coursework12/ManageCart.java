@@ -3,6 +3,8 @@ package com.example.coursework12;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.example.coursework12.Domain.CourseDomain;
+
 import java.util.ArrayList;
 
 public class ManageCart {

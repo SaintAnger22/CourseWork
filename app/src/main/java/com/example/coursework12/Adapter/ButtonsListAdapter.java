@@ -1,7 +1,4 @@
-package com.example.coursework12;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+package com.example.coursework12.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,11 +8,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
-import com.example.coursework12.DetailActivity;
+import com.example.coursework12.Activity.DetailActivity;
+import com.example.coursework12.Domain.CourseDomain;
 import com.example.coursework12.R;
-import com.example.coursework12.CourseDomain;
 
 import java.util.ArrayList;
 

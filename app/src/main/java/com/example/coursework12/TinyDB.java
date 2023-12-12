@@ -10,6 +10,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.example.coursework12.Domain.CourseDomain;
 import com.google.gson.Gson;
 
 import java.io.File;
